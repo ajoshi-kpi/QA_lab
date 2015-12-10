@@ -53,7 +53,8 @@ public class ATM {
         } else if (this.getMoneyInATM() < amount) {
             throw new NotEnoughMoneyInATMException();
         } else {
-            this.money -= account.withdrow(amount);
+            account.withdrow(amount);
+            this.money -= amount;
             return account.getBalance();
         }
     }
